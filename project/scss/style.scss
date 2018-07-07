@@ -1,0 +1,12 @@
+@import "modules/reset";
+@import "modules/color";
+
+.option {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+.bold { font-weight: bold; color: red; }
