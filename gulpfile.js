@@ -1,13 +1,24 @@
-var gulp = require('gulp'),
-  webserver = require('gulp-webserver'),
-  sass = require('gulp-sass'),
-  livereload = require('gulp-livereload'),
-  sourcemaps = require('gulp-sourcemaps');
-var src = 'project';
-var paths = {
-  root: src,
-  scss: src+'/scss/**/*.scss',
-  css: src+'/css'
+var gulp        = require('gulp');
+var webserver   = require('gulp-webserver');
+var sass        = require('gulp-sass');
+var livereload  = require('gulp-livereload');
+var sourcemaps  = require('gulp-sourcemaps');
+// sprite
+var buffer      = require('vinyl-buffer');
+var csso        = require('gulp-csso');
+var imagemin    = require('gulp-imagemin');
+var merge       = require('merge-stream');
+var spritesmith = require('gulp.spritesmith');
+
+var src         = 'project';
+var paths       = {
+        root: src,
+        scss: src+'/scss/**/*.scss',
+        css: src+'/css',
+        spriteIn: src+'/images/sprite-in',
+        spriteOut: src+'/images/sprite-out',
+        imageSrc: '../images/sprite-out',
+        spriteScssPath: src+'/scss/modules'
 };
 
 /** * ==============================+ * @SCSS : SCSS Config(환경설정) * ==============================+ */
@@ -72,12 +83,59 @@ gulp.task('sass:compile', function () {
     .pipe(gulp.dest(paths.css));
 });
 
+
+gulp.task('sprite', function  () {
+  // Use all normal and `-2x` (retina) images as `src`
+  //   e.g. `github.png`, `github-2x.png`
+  var spriteData = gulp.src(paths.spriteIn+'/*.png')
+    .pipe(spritesmith({
+
+      // Filter out `-2x` (retina) images to separate spritesheet
+      //   e.g. `github-2x.png`, `twitter-2x.png`
+      retinaSrcFilter: [paths.spriteIn+'/*-2x.png'],
+      // Generate a normal and a `-2x` (retina) spritesheet
+      retinaImgName:'spritesheet-2x.png',
+
+      imgPath: '/'+paths.imageSrc+'/'+'spritesheet.png',
+      retinaImgPath: '/'+paths.imageSrc+'/'+'spritesheet-2x.png',
+      imgName: 'spritesheet.png',
+      // Generate SCSS variables/mixins for both spritesheets
+      cssName: '_sprites.scss',
+       padding: 6,
+       cssFormat: 'scss_retina',
+       cssOpts: {
+            cssClass: function(item) {
+                return item.name;
+            }
+        }
+    }));
+
+  // imgStream = spriteData.img.pipe(gulp.dest(paths.spriteOut+'/'));
+  // cssStream = spriteData.css.pipe(gulp.dest(paths.spriteScssPath+'/'));
+
+  // Deliver spritesheets to `dist/` folder as they are completed
+  var imgStream = spriteData.img
+    .pipe(buffer())
+    .pipe(imagemin())
+    .pipe(gulp.dest(paths.spriteOut+'/'));
+
+
+  // Deliver CSS to `./` to be imported by `index.scss`
+  var cssStream = spriteData.css
+    .pipe(csso())
+    .pipe(gulp.dest(paths.spriteScssPath+'/'));
+
+
+  return merge(imgStream, cssStream);
+});
+
 // 파일 변경 감지 및 브라우저 재시작
 gulp.task('watch', function () {
   livereload.listen();
+  gulp.watch(paths.spriteIn+'/*.*', ['sprite']);
   gulp.watch(paths.scss, ['sass:compile']);
-  gulp.watch(paths.css + '/**').on('change', livereload.changed);
+  gulp.watch(src + '/**').on('change', livereload.changed);
 });
 
 // 기본 구동 task
-gulp.task('default', [ 'watch', 'server']);
+gulp.task('default', [ 'sprite', 'watch', 'server']);
