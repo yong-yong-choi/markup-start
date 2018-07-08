@@ -5,4 +5,4 @@
 
 * ```npm init```
 * ```npm install gulp --global```
-* ```npm install gulp gulp-sass gulp-sourcemaps vinyl-buffer gulp-csso gulp-imagemin merge-stream gulp-webserver gulp-livereload gulp.spritesmith --save-dev```
+* ```npm igulp gulp-sass gulp-sourcemaps gulp-webserver gulp-livereload vinyl-buffer gulp-csso gulp-imagemin merge-stream gulp.spritesmith --save-dev```
