@@ -7,4 +7,4 @@
 * ```npm install gulp gulp-sass gulp-sourcemaps gulp-webserver gulp-livereload vinyl-buffer gulp-csso gulp-imagemin merge-stream gulp.spritesmith --save-dev```
 ### Info
   - Convert sass to css
-  - Merge sprite image
+  - Merge sprite image (+Retina)
