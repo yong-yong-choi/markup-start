@@ -1,22 +1,18 @@
 // Load in our compiled SCSS variables
 @import "./sprites";
 
-.color-white { color: #fff; }
-.color-dark { color: #000; }
-.color-gray { color: #777; }
-
+[class^="icon-"] {
+  display: inline-block;
+}
+.icon-github {
+  @include sprite($github);
+}
+.icon-twitter {
+  @include sprite($twitter);
+}
+.icon-matreshka {
+  @include sprite($matreshka);
+}
 .icon-wrapper {
   padding: 20px;
-  .icon-github,
-  .icon-twitter {
-    display: inline-block;
-  }
-  .icon-github {
-    @include sprite($github);
-
-  }
-  .icon-twitter {
-    @include sprite($twitter);
-
-  }
 }

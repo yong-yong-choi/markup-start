@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "font-icon";
+  src: url('../font-icon/fonts/font-icon.eot');
+  src: url('../font-icon/fonts/font-icon.eot?#iefix') format('eot'),
+    url('../font-icon/fonts/font-icon.woff2') format('woff2'),
+    url('../font-icon/fonts/font-icon.woff') format('woff'),
+    url('../font-icon/fonts/font-icon.ttf') format('truetype'),
+    url('../font-icon/fonts/font-icon.svg#font-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fico:before {
+  font-family: "font-icon";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  font-size: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fico-lg {
+  font-size: 1.3333333333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fico-2x { font-size: 2em; }
+.fico-3x { font-size: 3em; }
+.fico-4x { font-size: 4em; }
+.fico-5x { font-size: 5em; }
+.fico-fw {
+  width: 1.2857142857142858em;
+  text-align: center;
+}
+
+.fico-connection:before { content: "\EA01" }
+.fico-dice:before { content: "\EA02" }
+.fico-droplet:before { content: "\EA03" }
+.fico-home:before { content: "\EA04" }
+.fico-home2:before { content: "\EA05" }
+.fico-home3:before { content: "\EA06" }
+.fico-IcoMoon:before { content: "\EA07" }
+.fico-newspaper:before { content: "\EA08" }
+.fico-pencil:before { content: "\EA09" }
+.fico-trello:before { content: "\EA0A" }
+.fico-video-camera:before { content: "\EA0B" }
+.fico-vimeo2:before { content: "\EA0C" }

@@ -1,7 +1,9 @@
+var async       = require('async');
 var gulp        = require('gulp');
 var webserver   = require('gulp-webserver');
-var sass        = require('gulp-sass');
 var livereload  = require('gulp-livereload');
+//sass
+var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 // sprite
 var buffer      = require('vinyl-buffer');
@@ -9,7 +11,10 @@ var csso        = require('gulp-csso');
 var imagemin    = require('gulp-imagemin');
 var merge       = require('merge-stream');
 var spritesmith = require('gulp.spritesmith');
-
+// font
+var iconfont    = require('gulp-iconfont');
+var consolidate = require('gulp-consolidate');
+// path
 var src         = 'project';
 var paths       = {
         root: src,
@@ -18,10 +23,66 @@ var paths       = {
         spriteIn: src+'/images/sprite-in',
         spriteOut: src+'/images/sprite-out',
         imageSrc: '../images/sprite-out',
-        spriteScssPath: src+'/scss/modules'
+        spriteScssPath: src+'/scss/modules',
+        rootCss: './css/style.css'
 };
 
-/** * ==============================+ * @SCSS : SCSS Config(환경설정) * ==============================+ */
+var fontName = 'font-icon'; // name of font
+var fontClass = 'fico'; // name of class
+gulp.task('iconfont', function(done){
+  var iconStream = gulp.src([paths.root+'/font-icon/icons/*.svg']) // the location of all the svg files to be created into the font
+
+    .pipe(iconfont({
+      normalize: true,
+      fontName: fontName,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      appendCodepoints: true,
+      fontHeight: 1001
+    }))
+    async.parallel([
+    function handleGlyphs (cb) {
+      iconStream.on('glyphs', function(glyphs, options) {
+        // scss
+        gulp.src(paths.root+'/font-icon/templates/_font-icon.scss')
+          .pipe(consolidate('lodash', {
+            glyphs: glyphs,
+            fontName: options.fontName,
+            fontPath:'../font-icon/fonts/',
+            className: fontClass
+          }))
+          .pipe(gulp.dest(paths.root+'/scss/modules/'))
+          .on('finish', cb);
+          console.log(glyphs, options);
+      });
+
+    },
+    function handleHtml (cb) {
+      iconStream.on('glyphs', function(glyphs, options) {
+        // html
+        gulp.src(paths.root+'/font-icon/templates/font-template.html')
+          .pipe(consolidate('lodash', {
+            glyphs: glyphs,
+            fontName: options.fontName,
+            className: fontClass,
+            cssPath: paths.rootCss
+          }))
+          .pipe(gulp.dest(paths.root+'/'))
+          .on('finish', cb);
+      });
+    },
+    function handleFonts (cb) {
+      iconStream
+        .pipe(gulp.dest(paths.root+'/font-icon/fonts/'))
+        .on('finish', cb);
+    }
+  ], done);
+});
+
+/**
+* ==============================+
+* @SCSS : SCSS Config(환경설정)
+* ==============================+
+*/
 var scssOptions = {
 
   /**
@@ -96,8 +157,8 @@ gulp.task('sprite', function  () {
       // Generate a normal and a `-2x` (retina) spritesheet
       retinaImgName:'spritesheet-2x.png',
 
-      imgPath: '/'+paths.imageSrc+'/'+'spritesheet.png',
-      retinaImgPath: '/'+paths.imageSrc+'/'+'spritesheet-2x.png',
+      imgPath: paths.imageSrc+'/'+'spritesheet.png',
+      retinaImgPath: paths.imageSrc+'/'+'spritesheet-2x.png',
       imgName: 'spritesheet.png',
       // Generate SCSS variables/mixins for both spritesheets
       cssName: '_sprites.scss',
@@ -138,4 +199,4 @@ gulp.task('watch', function () {
 });
 
 // 기본 구동 task
-gulp.task('default', [ 'sprite', 'watch', 'server']);
+gulp.task('default', [ 'watch', 'server']);

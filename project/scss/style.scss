@@ -1,7 +1,7 @@
 // Load in our compiled SCSS variables
+@import "modules/font-icon";
 @import "modules/sprites";
 @import "modules/reset";
 @import "modules/modules-a";
-
 // Generate sprite rules and media queries
 @include retina-sprites($retina-groups);
