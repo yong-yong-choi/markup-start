@@ -9,7 +9,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 .fico:before {
   font-family: "font-icon";
   display: inline-block;
@@ -25,7 +24,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .fico-lg {
   font-size: 1.3333333333333333em;
   line-height: 0.75em;
@@ -39,7 +37,6 @@
   width: 1.2857142857142858em;
   text-align: center;
 }
-
 .fico-connection:before { content: "\EA01" }
 .fico-dice:before { content: "\EA02" }
 .fico-droplet:before { content: "\EA03" }

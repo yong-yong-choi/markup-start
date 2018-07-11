@@ -14,6 +14,7 @@ var spritesmith = require('gulp.spritesmith');
 // font
 var iconfont    = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
+
 // path
 var src         = 'project';
 var paths       = {
@@ -56,7 +57,7 @@ gulp.task('iconfont', function(done){
       });
 
     },
-    function handleHtml (cb) {
+    function handleHtmlTemplate (cb) {
       iconStream.on('glyphs', function(glyphs, options) {
         // html
         gulp.src(paths.root+'/font-icon/templates/font-template.html')
@@ -68,6 +69,7 @@ gulp.task('iconfont', function(done){
           }))
           .pipe(gulp.dest(paths.root+'/'))
           .on('finish', cb);
+          console.log('Create "font-template.html" file...');
       });
     },
     function handleFonts (cb) {
@@ -194,8 +196,13 @@ gulp.task('sprite', function  () {
 gulp.task('watch', function () {
   livereload.listen();
   gulp.watch(paths.spriteIn+'/*.*', ['sprite']);
-  gulp.watch(paths.scss, ['sass:compile']);
+  gulp.watch(paths.scss, function(){
+    setTimeout(function () {
+       gulp.task('sass:compile');
+    }, 1000);
+  });
   gulp.watch(src + '/**').on('change', livereload.changed);
+
 });
 
 // 기본 구동 task
