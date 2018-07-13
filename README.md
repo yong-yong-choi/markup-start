@@ -3,8 +3,8 @@
 
 ### Setting
 * ```npm install```
-* ```npm install gulp --global```
-* ```npm install gulp gulp-webserver gulp-livereload gulp-sass gulp-sourcemaps vinyl-buffer gulp-csso gulp-imagemin merge-stream gulp.spritesmith gulp-iconfont gulp-consolidate --save-dev```
+* ```npm install gulp --save-dev```
+
 ### Info
   - Convert sass to css
   - Merge sprite image (+Retina)
