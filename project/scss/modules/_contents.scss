@@ -1,6 +1,10 @@
 // Load in our compiled SCSS variables
 @import "../sprites/sprites";
+
+$bg-color: #fefefe;
+
 body {
+  background-color: $bg-color;
   font-family: '맑은 고딕';
 }
 .header {
@@ -8,6 +12,7 @@ body {
   padding: 15px 30px;
   background-color: #333;
   color: #fff;
+
  }
 .wrapper {
    padding: 30px;
@@ -32,6 +37,17 @@ body {
     border-width: 1px 0 0;
   }
 }
+small {
+  padding-left:20px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.anchor {
+  display: inline-block;
+  color: #777;
+  text-decoration: underline;
+}
+
 [class^="icon-"] {
   display: inline-block;
 }
