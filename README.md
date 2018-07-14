@@ -12,3 +12,4 @@
   - Convert sass to css
   - Create sprite image (+Retina - gulpfile )
   - Create icon font.
+  - used the icon file of the [iconmoon](https://icomoon.io).

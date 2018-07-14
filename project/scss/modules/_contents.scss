@@ -1,7 +1,7 @@
 // Load in our compiled SCSS variables
 @import "../sprites/sprites";
 
-$bg-color: #fefefe;
+$bg-color: #f8f8f8;
 
 body {
   background-color: $bg-color;
@@ -19,6 +19,8 @@ body {
    .wrapper-icon-block {
     padding: 20px 20px 60px;
     border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
     [class^="ficon"] {
       font-size: 40px;
     }
@@ -51,12 +53,39 @@ small {
 [class^="icon-"] {
   display: inline-block;
 }
-.icon-github {
-  @include sprite($github);
+.icon-connection {
+  @include sprite($connection);
 }
-.icon-twitter {
-  @include sprite($twitter);
+.icon-dice {
+  @include sprite($dice);
 }
-.icon-matreshka {
-  @include sprite($matreshka);
+.icon-droplet {
+  @include sprite($droplet);
+}
+.icon-home {
+  @include sprite($home);
+}
+.icon-home2 {
+  @include sprite($home2);
+}
+.icon-home3 {
+  @include sprite($home3);
+}
+.icon-moon {
+  @include sprite($moon);
+}
+.icon-newspaper {
+  @include sprite($newspaper);
+}
+.icon-pencil {
+  @include sprite($pencil);
+}
+.icon-trello {
+  @include sprite($trello);
+}
+.icon-video-camera {
+  @include sprite($video-camera);
+}
+.icon-vimeo2 {
+  @include sprite($vimeo2);
 }

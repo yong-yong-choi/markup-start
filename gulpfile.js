@@ -1,7 +1,12 @@
 var async       = require('async');
 var gulp        = require('gulp');
-var webserver   = require('gulp-webserver');
-var livereload  = require('gulp-livereload');
+
+// js combine
+// var concat      = require('gulp-concat');
+// var uglify      = require('gulp-uglify');
+// var rename      = require('gulp-rename');
+var browserSync = require('browser-sync').create();
+
 //sass
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
@@ -15,29 +20,47 @@ var spritesmith = require('gulp.spritesmith');
 var iconfont    = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 // path
-var src         = 'project';
 var paths       = {
-      root: src,
-      scssAll: src+'/scss/**/*.scss',
-      scssRoot: src+'/scss/*.scss',
-      scssModules: src+'/scss/modules/*.scss',
-      css: src+'/css',
-      spriteIn: src+'/images/sprite-in',
-      spriteOut: src+'/images/sprite-out',
+      root: 'project',
+      scssAll: 'project/scss/**/*.scss',
+      scssRoot: 'project/scss/*.scss',
+      scssModules:'project/scss/modules/*.scss',
+      css: 'project/css',
+      spriteIn: 'project/images/sprite-in',
+      spriteOut: 'project/images/sprite-out',
       imageSrc: '../images/sprite-out',
-      spriteScssPath: src+'/scss/sprites/',
-      rootCss: './css/style.css'
+      spriteScssPath:'project/scss/sprites/',
+      rootCss: './css/style.css',
+      jsSrc : 'project/src/js/**/*.js',
+      jsDist : 'project/dist'
 };
 
-// 웹서버 실행한다.
-gulp.task('server', function () {
-	return gulp.src(paths.root+'/')
-		.pipe(webserver({
-      port:'9090',
-      livereload: true,
-      open: true
+// @task : HTML livereload 반영
+gulp.task('html', function () {
+  return gulp .src('./**/*.html')
+  // HTML 파일을 browserSync 로 브라우저에 반영 */
+    .pipe(browserSync.reload({
+      stream : true
     }));
 });
+
+/*
+// @task : Script 병합,압축,min 파일 생성
+gulp.task('js:combine', function () {
+  return gulp .src(paths.jsSrc)
+    .pipe(concat('combined.js'))
+    .pipe(gulp.dest(paths.jsDist+'/js'))
+    .pipe(uglify())
+    .pipe(rename({suffix : ".min"}))
+    .pipe(gulp.dest(paths.jsDist+'/js'))
+    // 스크립트 파일을 browserSync 로 브라우저에 반영
+    .pipe(browserSync.reload(
+      {
+        stream : true
+      }
+    ));
+});
+*/
 
 // @SCSS : SCSS Config(환경설정)
 var scssOptions = {
@@ -48,15 +71,15 @@ var scssOptions = {
   // Values : space , tab
   indentType : "space",
   // indentWidth (>= v3.0.0, Type : Integer , Default : 2) 컴파일 된 CSS의 "들여쓰기" 의 갯수
-  indentWidth : 2, // outputStyle 이 nested, expanded 인 경우에 사용
+  indentWidth : 1, // outputStyle 이 nested, expanded 인 경우에 사용
   // precision (Type : Integer , Default : 5) 컴파일 된 CSS 의 소수점 자리수.
-  precision: 6,
+  precision: 3,
   // sourceComments (Type : Boolean , Default : false) 컴파일 된 CSS 에 원본소스의 위치와 줄수 주석표시.
   sourceComments: false
 };
 
 // sass 파일을 css 로 컴파일한다.
-gulp.task('sass:compile', function () {
+gulp.task('sass:style', function () {
   return gulp.src(paths.scssAll)
     // 소스맵 초기화(소스맵을 생성)
     .pipe(sourcemaps.init())
@@ -65,10 +88,14 @@ gulp.task('sass:compile', function () {
     // 위에서 생성한 소스맵을 사용한다.
     .pipe(sourcemaps.write())
     // 목적지(destination)을 설정
-    .pipe(gulp.dest(paths.css));
+    .pipe(gulp.dest(paths.css))
+    // SCSS 컴파일을 수행한 후 browserSync 로 브라우저에 반영
+    .pipe(browserSync.reload({
+      stream : true
+    }));
 });
 
-
+// sprite 생성
 gulp.task('sprite', function  () {
   var spriteData = gulp.src(paths.spriteIn+'/*.png')
     .pipe(spritesmith({
@@ -83,8 +110,11 @@ gulp.task('sprite', function  () {
       padding: 6,
       cssFormat: 'scss', // scss_retina // (retina) images
       cssOpts: {
+          // cssClass: function(item) {
+          //     return '.sprite-' + item.name;
+          // }
           cssClass: function(item) {
-              return '.sprite-' + item.name;
+              return item.name;
           }
       }
     }));
@@ -100,11 +130,10 @@ gulp.task('sprite', function  () {
     .pipe(csso())
     .pipe(gulp.dest(paths.spriteScssPath));
 
-  merge(imgStream, cssStream);
-  gulp.start('sass:compile');
+  return merge(imgStream, cssStream);
 });
 
-
+// 폰트 생성
 var fontName = 'font-icon'; // name of font
 var fontClass = 'ficon'; // name of class
 gulp.task('iconfont', function(done){
@@ -156,14 +185,26 @@ gulp.task('iconfont', function(done){
   ], done);
 });
 
+// @task : browserSync
+gulp.task('browserSync', ['html', /*'js:combine',*/ 'sass:style'], function () {
+  return browserSync.init({
+      port : 3000,
+      server: {
+        baseDir: paths.root
+      }
+  });
+});
+
 // 파일 변경 감지 및 브라우저 재시작
 gulp.task('watch', function () {
-  livereload.listen();
-  gulp.watch(paths.spriteIn+'/*.*', ['sprite']);
-  gulp.watch(paths.scssRoot, ['sass:compile']);
-  gulp.watch(paths.scssModules, ['sass:compile']);
-  gulp.watch(paths.root + '/**').on('change', livereload.changed);
+  gulp.watch('./**/*.html').on("change", browserSync.reload);
+  //gulp.watch(paths.jsSrc, ['js:combine']).on("change", browserSync.reload);
+  gulp.watch(paths.scssRoot, ['sass:style']).on("change", browserSync.reload);
+  gulp.watch(paths.scssModules, ['sass:style']);
+  gulp.watch(paths.spriteIn+'/*.*', function(event){
+    gulp.run(['sass:style']);
+  });
 });
 
 // 기본 구동 task
-gulp.task('default', [ 'watch', 'server']);
+gulp.task('default', ['browserSync','sprite','watch']);

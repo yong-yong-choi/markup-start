@@ -1,70 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <title>font-icon - glyphs list</title>
+  <meta charset="UTF-8">
+  <title>font-icon - glyphs list</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
- <link rel="stylesheet" href="./css/style.css">
- <style>
-  * {
-    box-sizing: border-box;
+    body {
+      font-family: '맑은 고딕';
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 30px auto 0;
+    }
+
+    .glyphs-list {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+  .glyphs-list li {
+    float: left;
+    width: 25%;
+    padding: 16px;
+    text-align: center;
   }
 
-  body {
-    font-family: '맑은 고딕';
+  .glyphs-list li:hover {
+    cursor: default;
+    background: #fafafa;
   }
 
-  .wrap {
-    max-width: 800px;
-    margin: 30px auto 0;
+  .glyphs-list li:nth-child(4n+1) {
+    clear: left;
   }
 
-  .glyphs-list {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    list-style: none
+  .glyphs-list i {
+    font-size: 48px;
+    line-height: 1;
   }
 
-.glyphs-list li {
-  float: left;
-  width: 25%;
-  padding: 16px;
-  text-align: center;
-}
+  .glyphs-list code {
+    display: block;
+    margin: 16px 0 0;
+    font-size: 12px;
+  }
 
-.glyphs-list li:hover {
-  cursor: default;
-  background: #fafafa;
-}
-
-.glyphs-list li:nth-child(4n+1) {
-  clear: left;
-}
-
-.glyphs-list i {
-  font-size: 48px;
-  line-height: 1;
-}
-
-.glyphs-list code {
-  display: block;
-  margin: 16px 0 0;
-  font-size: 12px;
-}
-
-.glyphs-list input {
-  display: block;
-  width: 100%;
-  padding: 3px 2px 2px;
-  margin: 16px 0 0;
-  font-size: 12px;
-  line-height: 1.6;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  text-align: center;
-}
- </style>
+  .glyphs-list input {
+    display: block;
+    width: 100%;
+    padding: 3px 2px 2px;
+    margin: 16px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+  }
+  </style>
 </head>
 <body>
   <h1 class="header">font-icon - glyphs list</h1>
