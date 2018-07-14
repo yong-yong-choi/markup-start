@@ -35,5 +35,11 @@
     "lodash": "^4.17.10",
     "merge-stream": "^1.0.1",
     "vinyl-buffer": "^1.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.2",
+    "holderjs": "^2.9.4",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }

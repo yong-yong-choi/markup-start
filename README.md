@@ -2,8 +2,10 @@
 ![twice](http://az879543.vo.msecnd.net/twice/20180701%200AM_TWICE1.jpg)
 
 ### Setting
-* ```npm install```
-* ```npm install gulp --save-dev```
+* `npm install`
+* `npm install gulp --save-dev`
+* `npm install bootstrap@4 --save`
+* `npm install jquery@1.9.1 popper.js@^1.14.3 holderjs --save`
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
@@ -13,3 +15,4 @@
   - Create sprite image (+Retina - gulpfile )
   - Create icon font.
   - used the icon file of the [iconmoon](https://icomoon.io).
+  - Add bootstrap 4.1.2

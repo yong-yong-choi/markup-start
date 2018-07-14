@@ -1,18 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><%= fontName %> - glyphs list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<%= cssPath %>">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: '맑은 고딕';
-    }
-
     .wrap {
       max-width: 800px;
       margin: 30px auto 0;
@@ -49,7 +43,6 @@
   .glyphs-list code {
     display: block;
     margin: 16px 0 0;
-    font-size: 12px;
   }
 
   .glyphs-list input {
@@ -79,5 +72,10 @@
       <% }) %>
     </ul>
   </div>
+
+  <script src="/js/jquery.slim.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/holder.min.js"></script>
 </body>
 </html>

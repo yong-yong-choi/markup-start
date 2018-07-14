@@ -24,15 +24,16 @@ var paths       = {
       root: 'project',
       scssAll: 'project/scss/**/*.scss',
       scssRoot: 'project/scss/*.scss',
-      scssModules:'project/scss/modules/*.scss',
+      scssModules: 'project/scss/modules/*.scss',
+      bootstrap: 'project/scss/bootstrap/*.scss',
       css: 'project/css',
       spriteIn: 'project/images/sprite-in',
       spriteOut: 'project/images/sprite-out',
       imageSrc: '../images/sprite-out',
-      spriteScssPath:'project/scss/sprites/',
+      spriteScssPath: 'project/scss/sprites/',
       rootCss: '/css/style.css',
       jsSrc : 'project/src/js/**/*.js',
-      jsDist : 'project/dist'
+      jsDist : 'project/js'
 };
 
 // @task : HTML livereload 반영
@@ -61,6 +62,16 @@ gulp.task('js:combine', function () {
     ));
 });
 */
+gulp.task('js:combine', function() {
+  return gulp.src([
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/jquery/dist/jquery.slim.js',
+    'node_modules/popper.js/dist/umd/popper.min.js',
+    'node_modules/holderjs/holder.min.js'
+  ])
+    .pipe(gulp.dest(paths.jsDist))
+    .pipe(browserSync.stream());
+});
 
 // @SCSS : SCSS Config(환경설정)
 var scssOptions = {
@@ -80,7 +91,7 @@ var scssOptions = {
 
 // sass 파일을 css 로 컴파일한다.
 gulp.task('sass:style', function () {
-  return gulp.src(paths.scssAll)
+  return gulp.src([paths.scssAll])
     // 소스맵 초기화(소스맵을 생성)
     .pipe(sourcemaps.init())
     // SCSS 함수에 옵션갑을 설정, SCSS 작성시 watch 가 멈추지 않도록 logError 를 설정
@@ -89,6 +100,22 @@ gulp.task('sass:style', function () {
     .pipe(sourcemaps.write())
     // 목적지(destination)을 설정
     .pipe(gulp.dest(paths.css))
+    // SCSS 컴파일을 수행한 후 browserSync 로 브라우저에 반영
+    .pipe(browserSync.reload({
+      stream : true
+    }));
+});
+
+gulp.task('sass:bs', function () {
+  return gulp.src([paths.bootstrap])
+    // 소스맵 초기화(소스맵을 생성)
+    .pipe(sourcemaps.init())
+    // SCSS 함수에 옵션갑을 설정, SCSS 작성시 watch 가 멈추지 않도록 logError 를 설정
+    .pipe(sass(scssOptions).on('error', sass.logError))
+    // 위에서 생성한 소스맵을 사용한다.
+    .pipe(sourcemaps.write())
+    // 목적지(destination)을 설정
+    .pipe(gulp.dest(paths.css+'/bootstrap'))
     // SCSS 컴파일을 수행한 후 browserSync 로 브라우저에 반영
     .pipe(browserSync.reload({
       stream : true
@@ -186,7 +213,7 @@ gulp.task('iconfont', function(done){
 });
 
 // @task : browserSync
-gulp.task('browserSync', ['html', /*'js:combine',*/ 'sass:style'], function () {
+gulp.task('browserSync', ['html', 'js:combine', 'sass:style', 'sass:bs'], function () {
   return browserSync.init({
       port : 3000,
       server: {
@@ -201,6 +228,7 @@ gulp.task('watch', function () {
   //gulp.watch(paths.jsSrc, ['js:combine']).on("change", browserSync.reload);
   gulp.watch(paths.scssRoot, ['sass:style']).on("change", browserSync.reload);
   gulp.watch(paths.scssModules, ['sass:style']).on("change", browserSync.reload);
+  gulp.watch(paths.bootstrap, ['sass:bs']).on("change", browserSync.reload);
   gulp.watch(paths.spriteIn+'/*.*', function(event){
     gulp.run(['sass:style']);
   }).on("change", browserSync.reload);
