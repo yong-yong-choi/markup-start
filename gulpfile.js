@@ -200,10 +200,10 @@ gulp.task('watch', function () {
   gulp.watch('./**/*.html').on("change", browserSync.reload);
   //gulp.watch(paths.jsSrc, ['js:combine']).on("change", browserSync.reload);
   gulp.watch(paths.scssRoot, ['sass:style']).on("change", browserSync.reload);
-  gulp.watch(paths.scssModules, ['sass:style']);
+  gulp.watch(paths.scssModules, ['sass:style']).on("change", browserSync.reload);
   gulp.watch(paths.spriteIn+'/*.*', function(event){
     gulp.run(['sass:style']);
-  });
+  }).on("change", browserSync.reload);
 });
 
 // 기본 구동 task
