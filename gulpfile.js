@@ -25,7 +25,7 @@ var paths       = {
       scssAll: 'project/scss/**/*.scss',
       scssRoot: 'project/scss/*.scss',
       scssModules: 'project/scss/modules/*.scss',
-      bootstrap: 'node_modules/bootstrap/scss/*.scss',
+      bootstrap: 'assets/stylesheets/*.scss',
       css: 'project/css',
       spriteIn: 'project/images/sprite-in',
       spriteOut: 'project/images/sprite-out',
@@ -64,9 +64,10 @@ gulp.task('js:combine', function () {
 */
 gulp.task('js:combine', function() {
   return gulp.src([
-    'node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'node_modules/jquery/dist/jquery.slim.js',
-    'node_modules/popper.js/dist/umd/popper.min.js',
+    'assets/javascripts/bootstrap.min.js',
+    'assets/javascripts/jquery.min.js',
+    'assets/javascripts/html5shiv.min.js',
+    'assets/javascripts/respond.min.js',
     'node_modules/holderjs/holder.min.js'
   ])
     .pipe(gulp.dest(paths.jsDist))
@@ -90,7 +91,7 @@ var scssOptions = {
 };
 
 // sass 파일을 css 로 컴파일한다.
-gulp.task('sass:style', function () {
+gulp.task('sass:style', ['fonts'], function () {
   return gulp.src([paths.scssAll])
     // 소스맵 초기화(소스맵을 생성)
     .pipe(sourcemaps.init())
@@ -105,7 +106,7 @@ gulp.task('sass:style', function () {
       stream : true
     }));
 });
-
+/*
 gulp.task('sass:bs', function () {
   return gulp.src([paths.bootstrap])
     // 소스맵 초기화(소스맵을 생성)
@@ -121,7 +122,7 @@ gulp.task('sass:bs', function () {
       stream : true
     }));
 });
-
+*/
 // sprite 생성
 gulp.task('sprite', function  () {
   var spriteData = gulp.src(paths.spriteIn+'/*.png')
@@ -212,8 +213,14 @@ gulp.task('iconfont', function(done){
   ], done);
 });
 
+// copy bootstrap required fonts to dest
+gulp.task('fonts', function () {
+  return gulp
+      .src('assets/fonts/**/*')
+      .pipe(gulp.dest('project/fonts/'));
+});
 // @task : browserSync
-gulp.task('browserSync', ['html', 'js:combine', 'sass:style', 'sass:bs'], function () {
+gulp.task('browserSync', ['html', 'js:combine', 'sass:style'], function () {
   return browserSync.init({
       port : 3000,
       server: {
