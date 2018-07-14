@@ -4,8 +4,7 @@
 ### Setting
 * `npm install`
 * `npm install gulp --save-dev`
-* `npm install bootstrap@4 --save`
-* `npm install jquery popper.js holderjs --save`
+* `npm install holderjs --save`
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
@@ -15,4 +14,4 @@
   - Create sprite image (+Retina - gulpfile )
   - Create icon font.
   - used the icon file of the [iconmoon](https://icomoon.io).
-  - Add bootstrap 4.1.2
+  - Add bootstrap 3.3.7
