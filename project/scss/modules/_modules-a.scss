@@ -1,22 +1,46 @@
 // Load in our compiled SCSS variables
-@import "./sprites";
-
-.color-white { color: #fff; }
-.color-dark { color: #000; }
-.color-gray { color: #777; }
-
-.icon-wrapper {
-  padding: 20px;
-  .icon-github,
-  .icon-twitter {
-    display: inline-block;
+@import "../sprites/sprites";
+body {
+  font-family: '맑은 고딕';
+}
+.header {
+  margin: 0;
+  padding: 15px 30px;
+  background-color: #333;
+  color: #fff;
+ }
+.wrapper {
+   padding: 30px;
+   .wrapper-icon-block {
+    padding: 20px 20px 60px;
+    border: 1px solid #ddd;
+    [class^="ficon"] {
+      font-size: 40px;
+    }
+    [class^="ficon"],
+    [class^="icon-"] {
+      font-size: 40px;
+      & + [class^="ficon"],
+      & + [class^="icon-"] {
+        margin-left: 20px;
+      }
+    }
   }
-  .icon-github {
-    @include sprite($github);
-
+  .hr {
+    margin: 40px 0;
+    border: solid #ddd;
+    border-width: 1px 0 0;
   }
-  .icon-twitter {
-    @include sprite($twitter);
-
-  }
+}
+[class^="icon-"] {
+  display: inline-block;
+}
+.icon-github {
+  @include sprite($github);
+}
+.icon-twitter {
+  @include sprite($twitter);
+}
+.icon-matreshka {
+  @include sprite($matreshka);
 }

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "font-icon";
+  src: url('../font-icon/fonts/font-icon.eot');
+  src: url('../font-icon/fonts/font-icon.eot?#iefix') format('eot'),
+    url('../font-icon/fonts/font-icon.woff2') format('woff2'),
+    url('../font-icon/fonts/font-icon.woff') format('woff'),
+    url('../font-icon/fonts/font-icon.ttf') format('truetype'),
+    url('../font-icon/fonts/font-icon.svg#font-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.ficon:before {
+  font-family: "font-icon";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  font-size: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ficon-lg {
+  font-size: 1.3333333333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.ficon-2x { font-size: 2em; }
+.ficon-3x { font-size: 3em; }
+.ficon-4x { font-size: 4em; }
+.ficon-5x { font-size: 5em; }
+.ficon-fw {
+  width: 1.2857142857142858em;
+  text-align: center;
+}
+.ficon-connection:before { content: "\EA01" }
+.ficon-dice:before { content: "\EA02" }
+.ficon-droplet:before { content: "\EA03" }
+.ficon-home:before { content: "\EA04" }
+.ficon-home2:before { content: "\EA05" }
+.ficon-home3:before { content: "\EA06" }
+.ficon-IcoMoon:before { content: "\EA07" }
+.ficon-newspaper:before { content: "\EA08" }
+.ficon-pencil:before { content: "\EA09" }
+.ficon-trello:before { content: "\EA0A" }
+.ficon-video-camera:before { content: "\EA0B" }
+.ficon-vimeo2:before { content: "\EA0C" }
