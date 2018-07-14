@@ -100,7 +100,8 @@ gulp.task('sprite', function  () {
     .pipe(csso())
     .pipe(gulp.dest(paths.spriteScssPath));
 
-  return merge(imgStream, cssStream);
+  merge(imgStream, cssStream);
+  gulp.start('sass:compile');
 });
 
 
@@ -161,9 +162,6 @@ gulp.task('watch', function () {
   gulp.watch(paths.spriteIn+'/*.*', ['sprite']);
   gulp.watch(paths.scssRoot, ['sass:compile']);
   gulp.watch(paths.scssModules, ['sass:compile']);
-  gulp.watch(paths.spriteScssPath+'/*.*', setTimeout(function() {
-    gulp.start('sass:compile');
-  }, 500));
   gulp.watch(paths.root + '/**').on('change', livereload.changed);
 });
 

@@ -11,12 +11,12 @@
   }
 
   body {
-   font-family: Helvetica, Verdana, sans-serif;
+   font-family: '맑은 고딕';
   }
 
   .wrap {
    max-width: 800px;
-   margin: 0 auto;
+   margin: 30px auto 0;
   }
 
   .glyphs-list {
@@ -49,6 +49,7 @@
   .glyphs-list code {
    display: block;
    margin: 16px 0 0;
+   font-size: 12px;
   }
 
   .glyphs-list input {
@@ -65,8 +66,8 @@
  </style>
 </head>
 <body>
+  <h1 class="header"><%= fontName %> - glyphs list</h1>
  <div class="wrap">
-  <h1><%= fontName %> - glyphs list</h1>
   <ul class="glyphs-list">
    <% _.each(glyphs, function(icon){ %>
    <li>

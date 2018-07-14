@@ -5,6 +5,10 @@
 * ```npm install```
 * ```npm install gulp --save-dev```
 
+Create icon font - `gulp iconfont`
+Create sprite - `gulp sprite`
+start localserver - `gulp`
 ### Info
   - Convert sass to css
-  - Merge sprite image (+Retina)
+  - Create sprite image (+Retina - gulpfile )
+  - Create icon font.
