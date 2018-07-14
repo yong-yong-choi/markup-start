@@ -30,7 +30,7 @@ var paths       = {
       spriteOut: 'project/images/sprite-out',
       imageSrc: '../images/sprite-out',
       spriteScssPath:'project/scss/sprites/',
-      rootCss: './css/style.css',
+      rootCss: '/css/style.css',
       jsSrc : 'project/src/js/**/*.js',
       jsDist : 'project/dist'
 };
