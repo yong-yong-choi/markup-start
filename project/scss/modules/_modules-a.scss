@@ -1,6 +1,18 @@
 // Load in our compiled SCSS variables
-@import "./sprites";
-
+@import "../sprites/sprites";
+.wrapper {
+   padding: 30px;;
+   .wrapper-icon-block {
+    padding: 20px;
+    border: 1px solid #ddd;
+    [class^="ficon"] {
+      font-size: 40px;
+      & + [class^="ficon"] {
+        margin-left: 20px;
+      }
+    }
+  }
+}
 [class^="icon-"] {
   display: inline-block;
 }
@@ -12,9 +24,4 @@
 }
 .icon-matreshka {
   @include sprite($matreshka);
-}
-.icon-wrapper {
-  padding: 20px;
-  margin-top: 30px;
-  border: 1px solid #ddd;
 }
