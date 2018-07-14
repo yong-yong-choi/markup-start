@@ -25,7 +25,7 @@ var paths       = {
       scssAll: 'project/scss/**/*.scss',
       scssRoot: 'project/scss/*.scss',
       scssModules: 'project/scss/modules/*.scss',
-      bootstrap: 'project/scss/bootstrap/*.scss',
+      bootstrap: 'node_modules/bootstrap/scss/*.scss',
       css: 'project/css',
       spriteIn: 'project/images/sprite-in',
       spriteOut: 'project/images/sprite-out',
@@ -228,7 +228,6 @@ gulp.task('watch', function () {
   //gulp.watch(paths.jsSrc, ['js:combine']).on("change", browserSync.reload);
   gulp.watch(paths.scssRoot, ['sass:style']).on("change", browserSync.reload);
   gulp.watch(paths.scssModules, ['sass:style']).on("change", browserSync.reload);
-  gulp.watch(paths.bootstrap, ['sass:bs']).on("change", browserSync.reload);
   gulp.watch(paths.spriteIn+'/*.*', function(event){
     gulp.run(['sass:style']);
   }).on("change", browserSync.reload);
