@@ -7,7 +7,7 @@
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
-3. start localserver - `gulp`
+3. start - `gulp`
 ### Info
   - Convert sass to css
   - Create sprite image (+Retina - gulpfile )
