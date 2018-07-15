@@ -10,6 +10,7 @@ var browserSync = require('browser-sync').create();
 //sass
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 // sprite
 var buffer      = require('vinyl-buffer');
 var csso        = require('gulp-csso');
@@ -97,6 +98,12 @@ gulp.task('sass:style', ['fonts'], function () {
     .pipe(sourcemaps.init())
     // SCSS 함수에 옵션갑을 설정, SCSS 작성시 watch 가 멈추지 않도록 logError 를 설정
     .pipe(sass(scssOptions).on('error', sass.logError))
+
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+
     // 위에서 생성한 소스맵을 사용한다.
     .pipe(sourcemaps.write())
     // 목적지(destination)을 설정
