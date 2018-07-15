@@ -113,6 +113,7 @@ gulp.task('sass:style', function () {
     }));
 });
 
+/*
 gulp.task('sass:bs', function () {
   return gulp.src([paths.bootstrap])
     // 소스맵 초기화(소스맵을 생성)
@@ -132,6 +133,7 @@ gulp.task('sass:bs', function () {
       stream : true
     }));
 });
+*/
 
 // sprite 생성
 gulp.task('sprite', function  () {
@@ -224,7 +226,7 @@ gulp.task('iconfont', function(done){
 });
 
 // @task : browserSync
-gulp.task('browserSync', ['html', 'js:combine', 'sass:style', 'sass:bs'], function () {
+gulp.task('browserSync', ['html', 'js:combine', 'sass:style'], function () {
   return browserSync.init({
       port : 3000,
       server: {
