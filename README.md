@@ -3,7 +3,6 @@
 
 ### Setting
 * ```npm install```
-* ```npm install gulp --save-dev```
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
