@@ -3,8 +3,7 @@
 
 ### Setting
 * `npm install`
-* `npm install gulp --save-dev`
-* `npm install holderjs --save`
+* `option - npm install holderjs`
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
