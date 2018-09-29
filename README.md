@@ -3,9 +3,6 @@
 
 ### Setting
 * `npm install`
-* `npm install gulp --save-dev`
-* `npm install bootstrap@4 --save`
-* `npm install jquery popper.js holderjs --save`
 
 1. Create icon font - `gulp iconfont`
 2. Create sprite - `gulp sprite`
