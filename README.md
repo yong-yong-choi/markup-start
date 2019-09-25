@@ -1,6 +1,7 @@
 # markup-starter-kit
 
 ### Setting
+* `npm install --global gulp-cli`
 * `npm install`
 
 1. Create icon font - `gulp iconfont`
