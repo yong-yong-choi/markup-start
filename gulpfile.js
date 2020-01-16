@@ -21,18 +21,18 @@ var iconfont    = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 // path
 var paths       = {
-      root: 'project',
-      scssAll: 'project/scss/**/*.scss',
-      scssRoot: 'project/scss/*.scss',
-      scssModules:'project/scss/modules/*.scss',
-      css: 'project/css',
-      spriteIn: 'project/images/sprite-in',
-      spriteOut: 'project/images/sprite-out',
+      root: './',
+      scssAll: 'scss/**/*.scss',
+      scssRoot: 'scss/*.scss',
+      scssModules:'scss/modules/*.scss',
+      css: 'css',
+      spriteIn: 'images/sprite-in',
+      spriteOut: 'images/sprite-out',
       imageSrc: '../images/sprite-out',
-      spriteScssPath:'project/scss/sprites/',
+      spriteScssPath:'scss/sprites/',
       rootCss: '/css/style.css',
-      jsSrc : 'project/src/js/**/*.js',
-      jsDist : 'project/dist'
+      jsSrc : 'src/js/**/*.js',
+      jsDist : 'dist'
 };
 
 // @task : HTML livereload 반영
