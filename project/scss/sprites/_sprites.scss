@@ -9,143 +9,141 @@
 //
 // At the bottom of this section, we provide information about the spritesheet itself
 // $spritesheet: width height image $spritesheet-sprites;
-$connection-name: 'connection';
-$connection-x: 0px;
-$connection-y: 0px;
-$connection-offset-x: 0px;
-$connection-offset-y: 0px;
-$connection-width: 40px;
-$connection-height: 32px;
-$connection-total-width: 154px;
-$connection-total-height: 108px;
-$connection-image: '../images/sprite-out/spritesheet.png';
-$connection: (0px, 0px, 0px, 0px, 40px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'connection', );
-$dice-name: 'dice';
-$dice-x: 0px;
-$dice-y: 76px;
-$dice-offset-x: 0px;
-$dice-offset-y: -76px;
-$dice-width: 32px;
-$dice-height: 32px;
-$dice-total-width: 154px;
-$dice-total-height: 108px;
-$dice-image: '../images/sprite-out/spritesheet.png';
-$dice: (0px, 76px, 0px, -76px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'dice', );
-$droplet-name: 'droplet';
-$droplet-x: 0px;
-$droplet-y: 38px;
-$droplet-offset-x: 0px;
-$droplet-offset-y: -38px;
-$droplet-width: 32px;
-$droplet-height: 32px;
-$droplet-total-width: 154px;
-$droplet-total-height: 108px;
-$droplet-image: '../images/sprite-out/spritesheet.png';
-$droplet: (0px, 38px, 0px, -38px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'droplet', );
-$home-name: 'home';
-$home-x: 38px;
-$home-y: 38px;
-$home-offset-x: -38px;
-$home-offset-y: -38px;
-$home-width: 32px;
-$home-height: 32px;
-$home-total-width: 154px;
-$home-total-height: 108px;
-$home-image: '../images/sprite-out/spritesheet.png';
-$home: (38px, 38px, -38px, -38px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'home', );
-$home2-name: 'home2';
-$home2-x: 84px;
-$home2-y: 0px;
-$home2-offset-x: -84px;
-$home2-offset-y: 0px;
-$home2-width: 32px;
-$home2-height: 32px;
-$home2-total-width: 154px;
-$home2-total-height: 108px;
-$home2-image: '../images/sprite-out/spritesheet.png';
-$home2: (84px, 0px, -84px, 0px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'home2', );
-$home3-name: 'home3';
-$home3-x: 84px;
-$home3-y: 38px;
-$home3-offset-x: -84px;
-$home3-offset-y: -38px;
-$home3-width: 32px;
-$home3-height: 32px;
-$home3-total-width: 154px;
-$home3-total-height: 108px;
-$home3-image: '../images/sprite-out/spritesheet.png';
-$home3: (84px, 38px, -84px, -38px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'home3', );
-$moon-name: 'moon';
-$moon-x: 122px;
-$moon-y: 76px;
-$moon-offset-x: -122px;
-$moon-offset-y: -76px;
-$moon-width: 32px;
-$moon-height: 32px;
-$moon-total-width: 154px;
-$moon-total-height: 108px;
-$moon-image: '../images/sprite-out/spritesheet.png';
-$moon: (122px, 76px, -122px, -76px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'moon', );
-$newspaper-name: 'newspaper';
-$newspaper-x: 38px;
-$newspaper-y: 76px;
-$newspaper-offset-x: -38px;
-$newspaper-offset-y: -76px;
-$newspaper-width: 32px;
-$newspaper-height: 32px;
-$newspaper-total-width: 154px;
-$newspaper-total-height: 108px;
-$newspaper-image: '../images/sprite-out/spritesheet.png';
-$newspaper: (38px, 76px, -38px, -76px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'newspaper', );
-$pencil-name: 'pencil';
-$pencil-x: 76px;
-$pencil-y: 76px;
-$pencil-offset-x: -76px;
-$pencil-offset-y: -76px;
-$pencil-width: 32px;
-$pencil-height: 32px;
-$pencil-total-width: 154px;
-$pencil-total-height: 108px;
-$pencil-image: '../images/sprite-out/spritesheet.png';
-$pencil: (76px, 76px, -76px, -76px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'pencil', );
-$trello-name: 'trello';
-$trello-x: 122px;
-$trello-y: 0px;
-$trello-offset-x: -122px;
-$trello-offset-y: 0px;
-$trello-width: 32px;
-$trello-height: 32px;
-$trello-total-width: 154px;
-$trello-total-height: 108px;
-$trello-image: '../images/sprite-out/spritesheet.png';
-$trello: (122px, 0px, -122px, 0px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'trello', );
-$video-camera-name: 'video-camera';
-$video-camera-x: 122px;
-$video-camera-y: 38px;
-$video-camera-offset-x: -122px;
-$video-camera-offset-y: -38px;
-$video-camera-width: 32px;
-$video-camera-height: 32px;
-$video-camera-total-width: 154px;
-$video-camera-total-height: 108px;
-$video-camera-image: '../images/sprite-out/spritesheet.png';
-$video-camera: (122px, 38px, -122px, -38px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'video-camera', );
-$vimeo2-name: 'vimeo2';
-$vimeo2-x: 46px;
-$vimeo2-y: 0px;
-$vimeo2-offset-x: -46px;
-$vimeo2-offset-y: 0px;
-$vimeo2-width: 32px;
-$vimeo2-height: 32px;
-$vimeo2-total-width: 154px;
-$vimeo2-total-height: 108px;
-$vimeo2-image: '../images/sprite-out/spritesheet.png';
-$vimeo2: (46px, 0px, -46px, 0px, 32px, 32px, 154px, 108px, '../images/sprite-out/spritesheet.png', 'vimeo2', );
-$spritesheet-width: 154px;
-$spritesheet-height: 108px;
+$address-book-name: 'address-book';
+$address-book-x: 46px;
+$address-book-y: 0px;
+$address-book-offset-x: -46px;
+$address-book-offset-y: 0px;
+$address-book-width: 32px;
+$address-book-height: 32px;
+$address-book-total-width: 116px;
+$address-book-total-height: 70px;
+$address-book-image: '../images/sprite-out/spritesheet.png';
+$address-book: (46px, 0px, -46px, 0px, 32px, 32px, 116px, 70px, '../images/sprite-out/spritesheet.png', 'address-book', );
+$barcode-name: 'barcode';
+$barcode-x: 0px;
+$barcode-y: 38px;
+$barcode-offset-x: 0px;
+$barcode-offset-y: -38px;
+$barcode-width: 32px;
+$barcode-height: 32px;
+$barcode-total-width: 116px;
+$barcode-total-height: 70px;
+$barcode-image: '../images/sprite-out/spritesheet.png';
+$barcode: (0px, 38px, 0px, -38px, 32px, 32px, 116px, 70px, '../images/sprite-out/spritesheet.png', 'barcode', );
+$envelop-name: 'envelop';
+$envelop-x: 38px;
+$envelop-y: 38px;
+$envelop-offset-x: -38px;
+$envelop-offset-y: -38px;
+$envelop-width: 32px;
+$envelop-height: 32px;
+$envelop-total-width: 116px;
+$envelop-total-height: 70px;
+$envelop-image: '../images/sprite-out/spritesheet.png';
+$envelop: (38px, 38px, -38px, -38px, 32px, 32px, 116px, 70px, '../images/sprite-out/spritesheet.png', 'envelop', );
+$file-play-name: 'file-play';
+$file-play-x: 84px;
+$file-play-y: 0px;
+$file-play-offset-x: -84px;
+$file-play-offset-y: 0px;
+$file-play-width: 32px;
+$file-play-height: 32px;
+$file-play-total-width: 116px;
+$file-play-total-height: 70px;
+$file-play-image: '../images/sprite-out/spritesheet.png';
+$file-play: (84px, 0px, -84px, 0px, 32px, 32px, 116px, 70px, '../images/sprite-out/spritesheet.png', 'file-play', );
+$price-tags-name: 'price-tags';
+$price-tags-x: 0px;
+$price-tags-y: 0px;
+$price-tags-offset-x: 0px;
+$price-tags-offset-y: 0px;
+$price-tags-width: 40px;
+$price-tags-height: 32px;
+$price-tags-total-width: 116px;
+$price-tags-total-height: 70px;
+$price-tags-image: '../images/sprite-out/spritesheet.png';
+$price-tags: (0px, 0px, 0px, 0px, 40px, 32px, 116px, 70px, '../images/sprite-out/spritesheet.png', 'price-tags', );
+$address-book-2x-name: 'address-book-2x';
+$address-book-2x-x: 92px;
+$address-book-2x-y: 0px;
+$address-book-2x-offset-x: -92px;
+$address-book-2x-offset-y: 0px;
+$address-book-2x-width: 64px;
+$address-book-2x-height: 64px;
+$address-book-2x-total-width: 232px;
+$address-book-2x-total-height: 140px;
+$address-book-2x-image: '../images/sprite-out/spritesheet-2x.png';
+$address-book-2x: (92px, 0px, -92px, 0px, 64px, 64px, 232px, 140px, '../images/sprite-out/spritesheet-2x.png', 'address-book-2x', );
+$barcode-2x-name: 'barcode-2x';
+$barcode-2x-x: 0px;
+$barcode-2x-y: 76px;
+$barcode-2x-offset-x: 0px;
+$barcode-2x-offset-y: -76px;
+$barcode-2x-width: 64px;
+$barcode-2x-height: 64px;
+$barcode-2x-total-width: 232px;
+$barcode-2x-total-height: 140px;
+$barcode-2x-image: '../images/sprite-out/spritesheet-2x.png';
+$barcode-2x: (0px, 76px, 0px, -76px, 64px, 64px, 232px, 140px, '../images/sprite-out/spritesheet-2x.png', 'barcode-2x', );
+$envelop-2x-name: 'envelop-2x';
+$envelop-2x-x: 76px;
+$envelop-2x-y: 76px;
+$envelop-2x-offset-x: -76px;
+$envelop-2x-offset-y: -76px;
+$envelop-2x-width: 64px;
+$envelop-2x-height: 64px;
+$envelop-2x-total-width: 232px;
+$envelop-2x-total-height: 140px;
+$envelop-2x-image: '../images/sprite-out/spritesheet-2x.png';
+$envelop-2x: (76px, 76px, -76px, -76px, 64px, 64px, 232px, 140px, '../images/sprite-out/spritesheet-2x.png', 'envelop-2x', );
+$file-play-2x-name: 'file-play-2x';
+$file-play-2x-x: 168px;
+$file-play-2x-y: 0px;
+$file-play-2x-offset-x: -168px;
+$file-play-2x-offset-y: 0px;
+$file-play-2x-width: 64px;
+$file-play-2x-height: 64px;
+$file-play-2x-total-width: 232px;
+$file-play-2x-total-height: 140px;
+$file-play-2x-image: '../images/sprite-out/spritesheet-2x.png';
+$file-play-2x: (168px, 0px, -168px, 0px, 64px, 64px, 232px, 140px, '../images/sprite-out/spritesheet-2x.png', 'file-play-2x', );
+$price-tags-2x-name: 'price-tags-2x';
+$price-tags-2x-x: 0px;
+$price-tags-2x-y: 0px;
+$price-tags-2x-offset-x: 0px;
+$price-tags-2x-offset-y: 0px;
+$price-tags-2x-width: 80px;
+$price-tags-2x-height: 64px;
+$price-tags-2x-total-width: 232px;
+$price-tags-2x-total-height: 140px;
+$price-tags-2x-image: '../images/sprite-out/spritesheet-2x.png';
+$price-tags-2x: (0px, 0px, 0px, 0px, 80px, 64px, 232px, 140px, '../images/sprite-out/spritesheet-2x.png', 'price-tags-2x', );
+$spritesheet-width: 116px;
+$spritesheet-height: 70px;
 $spritesheet-image: '../images/sprite-out/spritesheet.png';
-$spritesheet-sprites: ($connection, $dice, $droplet, $home, $home2, $home3, $moon, $newspaper, $pencil, $trello, $video-camera, $vimeo2, );
-$spritesheet: (154px, 108px, '../images/sprite-out/spritesheet.png', $spritesheet-sprites, );
+$spritesheet-sprites: ($address-book, $barcode, $envelop, $file-play, $price-tags, );
+$spritesheet: (116px, 70px, '../images/sprite-out/spritesheet.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 232px;
+$retina-spritesheet-height: 140px;
+$retina-spritesheet-image: '../images/sprite-out/spritesheet-2x.png';
+$retina-spritesheet-sprites: ($address-book-2x, $barcode-2x, $envelop-2x, $file-play-2x, $price-tags-2x, );
+$retina-spritesheet: (232px, 140px, '../images/sprite-out/spritesheet-2x.png', $retina-spritesheet-sprites, );
+
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+//
+// The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+$address-book-group-name: 'address-book';
+$address-book-group: ('address-book', $address-book, $address-book-2x, );
+$barcode-group-name: 'barcode';
+$barcode-group: ('barcode', $barcode, $barcode-2x, );
+$envelop-group-name: 'envelop';
+$envelop-group: ('envelop', $envelop, $envelop-2x, );
+$file-play-group-name: 'file-play';
+$file-play-group: ('file-play', $file-play, $file-play-2x, );
+$price-tags-group-name: 'price-tags';
+$price-tags-group: ('price-tags', $price-tags, $price-tags-2x, );
+$retina-groups: ($address-book-group, $barcode-group, $envelop-group, $file-play-group, $price-tags-group, );
 
 // The provided mixins are intended to be used with the array-like variables
 //
@@ -197,6 +195,34 @@ $spritesheet: (154px, 108px, '../images/sprite-out/spritesheet.png', $spriteshee
   @include sprite-height($sprite);
 }
 
+// The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+//   It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+//
+// .icon-home {
+//   @include retina-sprite($icon-home-group);
+// }
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
 // The `sprites` mixin generates identical output to the CSS template
 //   but can be overridden inside of SCSS
 //
@@ -206,6 +232,19 @@ $spritesheet: (154px, 108px, '../images/sprite-out/spritesheet.png', $spriteshee
     $sprite-name: nth($sprite, 10);
     .#{$sprite-name} {
       @include sprite($sprite);
+    }
+  }
+}
+
+// The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+//   This yields the same output as CSS retina template but can be overridden in SCSS
+//
+// @include retina-sprites($retina-groups);
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
     }
   }
 }

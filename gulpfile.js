@@ -79,7 +79,7 @@ var scssOptions = {
 };
 
 // sass 파일을 css 로 컴파일한다.
-gulp.task('sass:style', function () {
+gulp.task('sass', function generateSass () {
   return gulp.src(paths.scssAll)
     // 소스맵 초기화(소스맵을 생성)
     .pipe(sourcemaps.init())
@@ -96,19 +96,17 @@ gulp.task('sass:style', function () {
 });
 
 // sprite 생성
-gulp.task('sprite', function  () {
+gulp.task('sprite', function generateSpritesheets () {
   var spriteData = gulp.src(paths.spriteIn+'/*.png')
     .pipe(spritesmith({
       // (retina) images
-      // retinaSrcFilter: [paths.spriteIn+'/*-2x.png'],
-      // retinaImgName:'spritesheet-2x.png',
-      // retinaImgPath: paths.imageSrc+'/'+'spritesheet-2x.png',
-
+      retinaSrcFilter: [paths.spriteIn+'/*-2x.png'],
+      retinaImgName:'spritesheet-2x.png',
+      retinaImgPath: paths.imageSrc+'/'+'spritesheet-2x.png',
       imgPath: paths.imageSrc+'/'+'spritesheet.png',
       imgName: 'spritesheet.png',
       cssName: '_sprites.scss',
       padding: 6,
-      cssFormat: 'scss', // scss_retina // (retina) images
       cssOpts: {
           // cssClass: function(item) {
           //     return '.sprite-' + item.name;
@@ -186,7 +184,7 @@ gulp.task('iconfont', function(done){
 });
 
 // @task : browserSync
-gulp.task('browserSync', ['html', /*'js:combine',*/ 'sass:style'], function () {
+gulp.task('browserSync', ['html', /*'js:combine',*/ 'sass'], function () {
   return browserSync.init({
       port : 3000,
       server: {
@@ -199,10 +197,10 @@ gulp.task('browserSync', ['html', /*'js:combine',*/ 'sass:style'], function () {
 gulp.task('watch', function () {
   gulp.watch('./**/*.html').on("change", browserSync.reload);
   //gulp.watch(paths.jsSrc, ['js:combine']).on("change", browserSync.reload);
-  gulp.watch(paths.scssRoot, ['sass:style']).on("change", browserSync.reload);
-  gulp.watch(paths.scssModules, ['sass:style']).on("change", browserSync.reload);
+  gulp.watch(paths.scssRoot, ['sass']).on("change", browserSync.reload);
+  gulp.watch(paths.scssModules, ['sass']).on("change", browserSync.reload);
   gulp.watch(paths.spriteIn+'/*.*', function(event){
-    gulp.run(['sass:style']);
+    gulp.run(['sass']);
   }).on("change", browserSync.reload);
 });
 

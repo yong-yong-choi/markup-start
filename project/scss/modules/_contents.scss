@@ -1,5 +1,7 @@
 // Load in our compiled SCSS variables
 @import "../sprites/sprites";
+// Generate sprite rules and media queries
+@include retina-sprites($retina-groups);
 
 $bg-color: #f8f8f8;
 
@@ -53,39 +55,18 @@ small {
 [class^="icon-"] {
   display: inline-block;
 }
-.icon-connection {
-  @include sprite($connection);
+.icon-address-book {
+  @include sprite($address-book);
 }
-.icon-dice {
-  @include sprite($dice);
+.icon-barcode {
+  @include sprite($barcode);
 }
-.icon-droplet {
-  @include sprite($droplet);
+.icon-envelop {
+  @include sprite($envelop);
 }
-.icon-home {
-  @include sprite($home);
+.icon-file-play {
+  @include sprite($file-play);
 }
-.icon-home2 {
-  @include sprite($home2);
-}
-.icon-home3 {
-  @include sprite($home3);
-}
-.icon-moon {
-  @include sprite($moon);
-}
-.icon-newspaper {
-  @include sprite($newspaper);
-}
-.icon-pencil {
-  @include sprite($pencil);
-}
-.icon-trello {
-  @include sprite($trello);
-}
-.icon-video-camera {
-  @include sprite($video-camera);
-}
-.icon-vimeo2 {
-  @include sprite($vimeo2);
+.icon-price-tags {
+  @include sprite($price-tags);
 }
