@@ -1,4 +1,4 @@
-# markup-starter-kit
+# markup-start
 
 ### Setting
 * `npm install --global gulp-cli`
